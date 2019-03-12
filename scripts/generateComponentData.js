@@ -12,6 +12,7 @@ var paths = {
 
 const enableWatchMode = process.argv.slice(2) == '--watch';
 if (enableWatchMode) {
+  console.log('enableWatchMode', enableWatchMode);
   // Regenerate component metadata when components or examples change.
   chokidar.watch([paths.examples, paths.components]).on('change', function(event, path) {
     generate(paths);
