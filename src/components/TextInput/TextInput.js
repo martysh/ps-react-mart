@@ -6,22 +6,25 @@ import Label from '../Label';
  * error display, label placement, and required field marker. */
 function TextInput({htmlId, name, label, type = "text",
     required = false, onChange, placeholder,
-    value, error, children, ...props}) {
+    value, error, children, iconSuffix, ...props}) {
   return (
-    <div style={{marginBottom: 16}}>
+    <>
       <Label htmlFor={htmlId} label={label} required={required} />
-      <input
-        id={htmlId}
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        style={error && {border: 'solid 1px red'}}
+      <span style={{position:'relative', display:'inline-block'}} >
+        <input
+          id={htmlId}
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          style={error && {border: 'solid 1px red'}}
         {...props}/>
+        {iconSuffix}
+        </span>
         {children}
       {error && <div className="error" style={{color: 'red'}}>{error}</div>}
-    </div>
+    </>
   );
 };
 

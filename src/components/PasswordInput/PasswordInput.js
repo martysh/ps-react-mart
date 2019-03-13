@@ -22,28 +22,27 @@ class PasswordInput extends React.Component {
   render() {
     const { htmlId, value, label, error, onChange, placeholder, maxLength, showVisibilityToggle, quality, ...props } = this.props;
     const { showPassword } = this.state;
-
+    const IconSuffix = showVisibilityToggle &&
+        <EyeIcon onClick={this.toggleShowPassword}
+        style={{ width: '1em', height: '1em', position: 'absolute', top: '50%', transform:'translateY(-50%)', right:'5px' }}/>;
     return (
-      <TextInput
-        htmlId={htmlId}
-        label={label}
-        placeholder={placeholder}
-        type={showPassword ? 'text' : 'password'}
-        onChange={onChange}
-        value={value}
-        maxLength={maxLength}
-        error={error}
-        required
-        {...props}>
-        {
-          showVisibilityToggle &&
-            <EyeIcon onClick={this.toggleShowPassword}
-            style={{ width: '1em', height: '1em', verticalAlign: '-0.2em' }}/>
-        }
-        {
-          value && value.length > 0 && quality && <ProgressBar percent={quality} width={130} />
-        }
-      </TextInput>
+        <TextInput
+          htmlId={htmlId}
+          label={label}
+          placeholder={placeholder}
+          type={showPassword ? 'text' : 'password'}
+          onChange={onChange}
+          iconSuffix={IconSuffix}
+          value={value}
+          maxLength={maxLength}
+          error={error}
+          required
+          {...props}>
+
+          {
+            value && value.length > 0 && quality && <ProgressBar percent={quality} width={130} />
+          }
+        </TextInput>
     );
   }
 }
