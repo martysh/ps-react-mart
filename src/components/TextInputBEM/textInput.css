@@ -1,0 +1,16 @@
+.textinput {
+  margin-bottom: 16px;
+}
+.textinput__error {
+  color: "red";
+}
+.textinput__input--state-error {
+  border: "solid 1px red";
+}
+.textinput__input-wrapper {
+  position: "relative";
+  display: "inline-block";
+}
+.textinput__error {
+  color: red;
+}
