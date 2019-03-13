@@ -7,7 +7,7 @@ class ExampleAllFeatures extends React.Component {
     super(props);
 
     this.state = {
-      password: ''
+      password: 'initial'
     };
   }
 
@@ -26,6 +26,7 @@ class ExampleAllFeatures extends React.Component {
           value={this.state.password}
           minLength={8}
           placeholder="Enter password"
+          error="some error just happened"
           showVisibilityToggle
           quality={this.getQuality()}
           {...this.props} />
