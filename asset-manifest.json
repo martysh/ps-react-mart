@@ -1,15 +1,15 @@
 {
-  "main.css": "/static/css/main.5b4e9b40.chunk.css",
-  "main.js": "/static/js/main.bffc3e0d.chunk.js",
-  "main.js.map": "/static/js/main.bffc3e0d.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-  "static/css/2.fb50aaf0.chunk.css": "/static/css/2.fb50aaf0.chunk.css",
-  "static/js/2.2235bcfc.chunk.js": "/static/js/2.2235bcfc.chunk.js",
-  "static/js/2.2235bcfc.chunk.js.map": "/static/js/2.2235bcfc.chunk.js.map",
-  "index.html": "/index.html",
-  "precache-manifest.28bd259e6ab63b76513f2bff8f46cd47.js": "/precache-manifest.28bd259e6ab63b76513f2bff8f46cd47.js",
-  "service-worker.js": "/service-worker.js",
-  "static/css/2.fb50aaf0.chunk.css.map": "/static/css/2.fb50aaf0.chunk.css.map",
-  "static/css/main.5b4e9b40.chunk.css.map": "/static/css/main.5b4e9b40.chunk.css.map"
+  "main.css": "/ps-react-mart/static/css/main.5b4e9b40.chunk.css",
+  "main.js": "/ps-react-mart/static/js/main.c5bc02a9.chunk.js",
+  "main.js.map": "/ps-react-mart/static/js/main.c5bc02a9.chunk.js.map",
+  "runtime~main.js": "/ps-react-mart/static/js/runtime~main.df96f22e.js",
+  "runtime~main.js.map": "/ps-react-mart/static/js/runtime~main.df96f22e.js.map",
+  "static/css/2.fb50aaf0.chunk.css": "/ps-react-mart/static/css/2.fb50aaf0.chunk.css",
+  "static/js/2.21e863cd.chunk.js": "/ps-react-mart/static/js/2.21e863cd.chunk.js",
+  "static/js/2.21e863cd.chunk.js.map": "/ps-react-mart/static/js/2.21e863cd.chunk.js.map",
+  "index.html": "/ps-react-mart/index.html",
+  "precache-manifest.ad0d2359324597f0f437cb765302a059.js": "/ps-react-mart/precache-manifest.ad0d2359324597f0f437cb765302a059.js",
+  "service-worker.js": "/ps-react-mart/service-worker.js",
+  "static/css/2.fb50aaf0.chunk.css.map": "/ps-react-mart/static/css/2.fb50aaf0.chunk.css.map",
+  "static/css/main.5b4e9b40.chunk.css.map": "/ps-react-mart/static/css/main.5b4e9b40.chunk.css.map"
 }
