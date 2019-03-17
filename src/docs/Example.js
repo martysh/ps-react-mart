@@ -10,37 +10,38 @@ class Example extends React.Component {
 
   toggleCode = event => {
     event.preventDefault();
-    this.setState(prevState => {
-      return {showCode: !prevState.showCode};
-    });
-  }
+    this.setState(prevState => ({ showCode: !prevState.showCode }));
+  };
 
   render() {
-    const {showCode} = this.state;
-    const {code, description, name} = this.props.example;
-    // Must use CommonJS require to dynamically require because ES Modules must be statically analyzable.
-    const ExampleComponent = require(`./examples/${this.props.componentName}/${name}`).default;
+    const { showCode } = this.state;
+    const { code, description, name } = this.props.example;
+    // Must use CommonJS require to dynamically require because
+    // ES Modules must be statically analyzable.
+    const ExampleComponent = require(`./examples/${
+      this.props.componentName
+    }/${name}`).default;
     return (
       <div className="example">
-        {description && <h4>{description}</h4> }
+        {description && <h4>{description}</h4>}
 
         <ExampleComponent />
 
         <p>
-          <a href="" onClick={this.toggleCode}>
-            {showCode ? "Hide" : "Show"} Code
-          </a>
+          <button type="button" onClick={this.toggleCode}>
+            {showCode ? 'Hide' : 'Show'} Code
+          </button>
         </p>
 
         {showCode && <CodeExample>{code}</CodeExample>}
       </div>
-    )
+    );
   }
 }
 
 Example.propTypes = {
   example: PropTypes.object.isRequired,
-  componentName: PropTypes.string.isRequired
-}
+  componentName: PropTypes.string.isRequired,
+};
 
 export default Example;

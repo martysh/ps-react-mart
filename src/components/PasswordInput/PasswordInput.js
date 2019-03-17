@@ -9,40 +9,59 @@ class PasswordInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showPassword: false
-    }
+      showPassword: false,
+    };
   }
 
   toggleShowPassword = event => {
-    this.setState(prevState => {
-      return { showPassword: !prevState.showPassword };
-    });
-  }
+    this.setState(prevState => ({ showPassword: !prevState.showPassword }));
+  };
 
   render() {
-    const { htmlId, value, label, error, onChange, placeholder, maxLength, showVisibilityToggle, quality, ...props } = this.props;
+    const {
+      htmlId,
+      value,
+      label,
+      error,
+      onChange,
+      placeholder,
+      maxLength,
+      showVisibilityToggle,
+      quality,
+      ...props
+    } = this.props;
     const { showPassword } = this.state;
-    const IconSuffix = showVisibilityToggle &&
-        <EyeIcon onClick={this.toggleShowPassword}
-        style={{ width: '1em', height: '1em', position: 'absolute', top: '50%', transform:'translateY(-50%)', right:'5px' }}/>;
+    const IconSuffix = showVisibilityToggle && (
+      <EyeIcon
+        onClick={this.toggleShowPassword}
+        style={{
+          width: '1em',
+          height: '1em',
+          position: 'absolute',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          right: '5px',
+        }}
+      />
+    );
     return (
-        <TextInput
-          htmlId={htmlId}
-          label={label}
-          placeholder={placeholder}
-          type={showPassword ? 'text' : 'password'}
-          onChange={onChange}
-          iconSuffix={IconSuffix}
-          value={value}
-          maxLength={maxLength}
-          error={error}
-          required
-          {...props}>
-
-          {
-            value && value.length > 0 && quality && <ProgressBar percent={quality} width={130} />
-          }
-        </TextInput>
+      <TextInput
+        htmlId={htmlId}
+        label={label}
+        placeholder={placeholder}
+        type={showPassword ? 'text' : 'password'}
+        onChange={onChange}
+        iconSuffix={IconSuffix}
+        value={value}
+        maxLength={maxLength}
+        error={error}
+        required
+        {...props}
+      >
+        {value && value.length > 0 && quality && (
+          <ProgressBar percent={quality} width={130} />
+        )}
+      </TextInput>
     );
   }
 }
@@ -51,11 +70,12 @@ PasswordInput.propTypes = {
   /** Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing. */
   htmlId: PropTypes.string.isRequired,
 
-  /** Input name. Recommend setting this to match object's property so a single change handler can be used by convention.*/
+  /** Input name. Recommend setting this to match object's property
+   * so a single change handler can be used by convention. */
   name: PropTypes.string.isRequired,
 
   /** Password value */
-  value: PropTypes.any,
+  value: PropTypes.string,
 
   /** Input label */
   label: PropTypes.string,
@@ -76,13 +96,17 @@ PasswordInput.propTypes = {
   quality: PropTypes.number,
 
   /** Validation error to display */
-  error: PropTypes.string
+  error: PropTypes.string,
 };
 
 PasswordInput.defaultProps = {
+  error: null,
+  quality: null,
+  placeholder: '',
+  value: '',
   maxLength: 50,
   showVisibilityToggle: false,
-  label: 'Password'
+  label: 'Password',
 };
 
 export default PasswordInput;

@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useReducer} from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -11,7 +11,9 @@ const StyledModal = styled.div`
   left: 0;
   display: none;
   z-index: 2;
-  ${props => props.open && `
+  ${props =>
+    props.open &&
+    `
     display: grid;
     align-items: center;
     justify-items: center;
@@ -35,30 +37,31 @@ const StyledModal = styled.div`
 `;
 
 function Modal(props) {
-  const {open, toggleModal, children} = props;
+  const { open, toggleModal, children } = props;
   const node = useRef();
 
   useEffect(() => {
-    const handleClick = e=>{
-      if (!open || node.current.contains(e.target)===true) return;
-      else {
-        toggleModal();
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
+    const handleClick = e => {
+      if (!open || node.current.contains(e.target)) return;
+
+      toggleModal();
+    };
+    document.addEventListener('mousedown', handleClick);
     return () => {
-      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener('mousedown', handleClick);
     };
   }, [open]);
 
   return (
     <StyledModal open={open}>
       <div ref={node} className="overlay-inner">
-      <button className="close" onClick={toggleModal}>× Close</button>
+        <button type="button" className="close" onClick={toggleModal}>
+          × Close
+        </button>
         {children}
       </div>
     </StyledModal>
-  )
+  );
 }
 
 Modal.propTypes = {
@@ -66,14 +69,12 @@ Modal.propTypes = {
   toggleModal: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
-}
+    PropTypes.node,
+  ]).isRequired,
+};
 
 Modal.defaultProps = {
   open: false,
-  toggleModal : e=> console.log('onClose'),
-  children: <div>Some modal text goes here</div>
-}
+};
 
 export default Modal;
