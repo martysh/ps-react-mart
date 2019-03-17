@@ -6,6 +6,7 @@ import PlusIcon from 'ps-react/PlusIcon';
 
 import { withStyles } from '@material-ui/core/styles';
 import MuiButton from '@material-ui/core/Button';
+import { darken } from 'polished';
 
 const styles = theme => ({
   button: {
@@ -33,6 +34,7 @@ export default function ExampleButtons() {
     <DecoratedButton primary theme={{color:'papayawhip', bgColor: 'purple'}} >
       <PlusIcon/>
     different</DecoratedButton>
+    <DecoratedButton xSmall theme={{bgColor: '#ccc', color: darken(0.4, '#ccc')}} >small</DecoratedButton>
 
     <div>
       <MButton variant="contained" >
