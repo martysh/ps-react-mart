@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useEffect, useReducer} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -19,7 +19,8 @@ const StyledModal = styled.div`
   .overlay-inner {
     background: white;
     width: 700px;
-    min-height: 400px;
+    min-height: 30vh;
+    max-width: 80vw;
     padding: 20px;
     position: relative;
   }
@@ -34,11 +35,27 @@ const StyledModal = styled.div`
 `;
 
 function Modal(props) {
+  const {open, toggleModal, children} = props;
+  const node = useRef();
+
+  useEffect(() => {
+    const handleClick = e=>{
+      if (!open || node.current.contains(e.target)===true) return;
+      else {
+        toggleModal();
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, [open]);
+
   return (
-    <StyledModal open={props.open}>
-      <div className="overlay-inner">
-      <button className="close" onClick={props.toggleModal}>× Close</button>
-        {props.children}
+    <StyledModal open={open}>
+      <div ref={node} className="overlay-inner">
+      <button className="close" onClick={toggleModal}>× Close</button>
+        {children}
       </div>
     </StyledModal>
   )
