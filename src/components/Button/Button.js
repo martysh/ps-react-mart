@@ -7,20 +7,15 @@ import styled from 'styled-components';
 
 
 const StyledButton = styled.button`
-  /*  invert if primary */
-  --primary-color: ${props=> props.primary ? props.theme.bgColor: props.theme.color};
-  --bg-color: ${props =>  props.primary? props.theme.color : props.theme.bgColor};
-  --border-color: ${props=> props.theme.color};
-  --btn-font-size: ${props=> props.theme.fontSize};
-
-  color : var(--primary-color);
-  background-color: var(--bg-color);
-  border: 2px solid var( --border-color);
-  font-size: var( --btn-font-size);
-
+  color : ${props=> props.primary ? props.theme.bgColor: props.theme.color};
+  background-color: ${props =>  props.primary? props.theme.color : props.theme.bgColor};
+  border: 2px solid ${props=> props.theme.color};
+  font-size: ${props=> props.theme.fontSize};
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  vertical-align: middle;
 
   letter-spacing: 1px;
   font-weight: 700;
@@ -28,6 +23,10 @@ const StyledButton = styled.button`
   border-radius: ${props => props.round ? '50%' : '3px'}
   &[disabled]{
     opacity: 0.4;
+    cursor: not-allowed;
+  }
+  &:hover{
+    background-color: lighten()
   }
 `;
 
