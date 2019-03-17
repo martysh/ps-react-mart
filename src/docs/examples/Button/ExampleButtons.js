@@ -4,10 +4,24 @@ import Button from 'ps-react/Button';
 import EyeIcon from 'ps-react/EyeIcon';
 import PlusIcon from 'ps-react/PlusIcon';
 
+import { withStyles } from '@material-ui/core/styles';
+import MuiButton from '@material-ui/core/Button';
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+});
+
+const MButton =  withStyles(styles)(MuiButton);
 
 const DecoratedButton = styled(Button)`
     margin-left 0.5em;
 `;
+
 
 /** Optional Button */
 export default function ExampleButtons() {
@@ -19,6 +33,20 @@ export default function ExampleButtons() {
     <DecoratedButton primary theme={{color:'papayawhip', bgColor: 'purple'}} >
       <PlusIcon/>
     different</DecoratedButton>
-    <DecoratedButton primary theme={{fontSize:'2rem'}} >large button</DecoratedButton>
+
+    <div>
+      <MButton variant="contained" >
+        Default
+      </MButton>
+      <MButton variant="contained" color="primary" >
+      <EyeIcon/>
+      </MButton>
+      <MButton variant="contained" color="secondary" >
+        Secondary
+      </MButton>
+      <MButton variant="contained" color="secondary" >
+        Disabled
+      </MButton>
+      </div>
   </>)
 }
