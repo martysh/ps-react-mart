@@ -2,11 +2,18 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-
-
+import { configureActions } from '@storybook/addon-actions';
 import  Button  from './Button';
 import EyeIcon from '../EyeIcon';
 import PlusIcon from '../PlusIcon';
+
+configureActions({
+  depth: 100,
+  // Limit the number of items logged into the actions panel
+  limit: 20,
+})
+
+
 
 
 storiesOf('Button', module)
