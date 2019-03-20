@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import Label from '../Label';
 
 /** Text input with integrated label to enforce consistency in layout,
@@ -18,8 +20,17 @@ function TextInput({
   iconSuffix,
   ...props
 }) {
+  const StyledIcon = styled.span`
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0.25em;
+  `;
+
   return (
-    <>
+    <div>
       <Label htmlFor={htmlId} label={label} required={required} />
       <span style={{ position: 'relative', display: 'inline-block' }}>
         <input
@@ -32,7 +43,7 @@ function TextInput({
           style={error && { border: 'solid 1px red' }}
           {...props}
         />
-        {iconSuffix}
+        {iconSuffix && <StyledIcon>{iconSuffix}</StyledIcon>}
       </span>
       {children}
       {error && (
@@ -40,7 +51,7 @@ function TextInput({
           {error}
         </div>
       )}
-    </>
+    </div>
   );
 }
 

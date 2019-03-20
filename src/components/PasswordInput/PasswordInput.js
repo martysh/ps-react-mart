@@ -32,17 +32,7 @@ class PasswordInput extends React.Component {
     } = this.props;
     const { showPassword } = this.state;
     const IconSuffix = showVisibilityToggle && (
-      <EyeIcon
-        onClick={this.toggleShowPassword}
-        style={{
-          width: '1em',
-          height: '1em',
-          position: 'absolute',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          right: '5px',
-        }}
-      />
+      <EyeIcon onClick={this.toggleShowPassword} />
     );
     return (
       <TextInput
