@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { lighten, darken } from 'polished';
 
-/* --primary-color : ${props => props.theme.color || 'tomato'};*/
+/* --primary-color : ${props => props.theme.color || 'tomato'}; */
 /* color: var(--primary-color, ${props => props.theme.color}, 'tomato'); */
 
 const StyledButton = styled.button`
@@ -21,7 +21,7 @@ const StyledButton = styled.button`
   letter-spacing: 1px;
   font-weight: 700;
   padding: 0.3em 0.5em;
-  border-radius: ${props => (props.round ? '50%' : '3px')};
+  border-radius: ${props => (props.round ? '50%' : '0.25em')};
   box-shadow: 0 2px ${props => lighten(0.1, props.color)};
   &[disabled] {
     opacity: 0.4;
@@ -40,8 +40,8 @@ const StyledButton = styled.button`
 const Button = props => {
   const theme = Object.assign({}, Button.defaultProps.theme, props.theme || {});
   const componentProps = { ...props, theme };
-  theme.fontSize = props.small ? '0.7rem' : theme.fontSize;
-  theme.fontSize = props.xSmall ? '0.5rem' : theme.fontSize;
+  theme.fontSize = props.small ? '0.7em' : theme.fontSize;
+  theme.fontSize = props.xSmall ? '0.5em' : theme.fontSize;
   theme.borderWidth = props.small || props.xSmall ? '1px' : '2px';
   componentProps.color = props.primary ? theme.bgColor : theme.color;
   componentProps.bgColor = props.primary ? theme.color : theme.bgColor;
