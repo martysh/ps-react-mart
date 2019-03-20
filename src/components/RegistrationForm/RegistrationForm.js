@@ -8,6 +8,7 @@ import PasswordInput from '../PasswordInput';
 const FormDiv = styled.div`
   display: grid;
   justify-content: start;
+  justify-items: start;
 `;
 
 /** Registration form with built-in validation. */
@@ -15,10 +16,11 @@ function RegistrationForm({
   onSubmit,
   minPasswordLength,
   confirmationMessage,
+  resetForm,
 }) {
   const [user, setUser] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(!resetForm);
 
   const onChange = event => {
     const { name, value } = event.target;
@@ -84,7 +86,7 @@ function RegistrationForm({
         error={errors.password}
       />
 
-      <Button type="submit" onClick={onSubmitForm}>
+      <Button type="submit" primary onClick={onSubmitForm}>
         Register
       </Button>
     </FormDiv>
@@ -105,6 +107,7 @@ RegistrationForm.propTypes = {
 RegistrationForm.defaultProps = {
   confirmationMessage: 'Thanks for registering!',
   minPasswordLength: 8,
+  resetForm: true,
 };
 
 export default RegistrationForm;
