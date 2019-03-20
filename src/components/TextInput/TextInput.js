@@ -4,6 +4,24 @@ import styled from 'styled-components';
 
 import Label from '../Label';
 
+const StyledInput = styled.input`
+  border: 2px solid #b4b4b4;
+  padding: 0.75em 1.5em 0.75em 0.5em;
+  border-radius: 0.25em;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 25em;
+  &:focus {
+    outline: 0;
+    border-color: #5066c2;
+    box-shadow: 0 0 0.3125em 0.125em rgba(80, 102, 194, 0.5);
+  }
+`;
+
+const StyledFormItem = styled.div`
+  margin-bottom: 0.5em;
+`;
+
 /** Text input with integrated label to enforce consistency in layout,
  * error display, label placement, and required field marker. */
 function TextInput({
@@ -26,14 +44,14 @@ function TextInput({
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 0.25em;
+    right: 0.45em;
   `;
 
   return (
-    <div>
+    <StyledFormItem>
       <Label htmlFor={htmlId} label={label} required={required} />
       <span style={{ position: 'relative', display: 'inline-block' }}>
-        <input
+        <StyledInput
           id={htmlId}
           type={type}
           name={name}
@@ -51,7 +69,7 @@ function TextInput({
           {error}
         </div>
       )}
-    </div>
+    </StyledFormItem>
   );
 }
 
