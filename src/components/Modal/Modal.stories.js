@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
+import { storiesOf } from '@storybook/react';
 import Modal from './Modal';
 import Button from '../Button';
-import { storiesOf } from '@storybook/react';
 
-
-storiesOf('Modal', module)
-.add('basic modal', () => {
-
+storiesOf('Modal', module).add('basic modal', () => {
   function ModalExample() {
     const [showModal, toggleModal] = useState(false);
     const onToggleModal = () => {
@@ -21,6 +18,5 @@ storiesOf('Modal', module)
       </>
     );
   }
-  return <ModalExample/>;
+  return <ModalExample />;
 });
-
