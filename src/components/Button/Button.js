@@ -50,6 +50,7 @@ const Button = props => {
 
 Button.propTypes = {
   /** theme */
+  // eslint-disable-next-line react/forbid-prop-types
   theme: PropTypes.object,
 
   round: PropTypes.bool,

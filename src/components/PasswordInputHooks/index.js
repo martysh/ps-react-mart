@@ -1,1 +1,1 @@
-export {default} from './PasswordInputHooks';
+export { default } from './PasswordInputHooks';

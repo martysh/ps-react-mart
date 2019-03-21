@@ -102,12 +102,14 @@ RegistrationForm.propTypes = {
 
   /** Minimum password length */
   minPasswordLength: PropTypes.number,
+
+  submitted: PropTypes.bool,
 };
 
 RegistrationForm.defaultProps = {
   confirmationMessage: 'Thanks for registering!',
   minPasswordLength: 8,
-  resetForm: true,
+  submitted: false,
 };
 
 export default RegistrationForm;

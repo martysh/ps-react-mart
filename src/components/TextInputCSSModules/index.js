@@ -1,1 +1,1 @@
-export {default} from './TextInputCSSModules';
+export { default } from './TextInputCSSModules';

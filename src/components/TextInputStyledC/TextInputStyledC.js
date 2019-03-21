@@ -1,16 +1,17 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Label from '../Label';
 import styled from 'styled-components';
+import Label from '../Label';
 
 const FieldSet = styled.div`
   margin-bottom: 16px;
 `;
 const Error = styled.div`
-  color:red;
+  color: red;
 `;
 const Input = styled.input`
-  border: ${props=>props.error&&'solid 1px red'};
+  border: ${props => props.error && 'solid 1px red'};
   display: block;
 `;
 
@@ -21,13 +22,24 @@ const Wrapper = styled.span`
 
 /** Text input with integrated label to enforce consistency in layout,
  * error display, label placement, and required field marker. */
-function TextInputStyledC({htmlId, name, label, type = "text",
-    required = false, onChange, placeholder,
-    value, error, children, iconSuffix, ...props}) {
+function TextInputStyledC({
+  htmlId,
+  name,
+  label,
+  type = 'text',
+  required = false,
+  onChange,
+  placeholder,
+  value,
+  error,
+  children,
+  iconSuffix,
+  ...props
+}) {
   return (
     <FieldSet>
       <Label htmlFor={htmlId} label={label} required={required} />
-      <Wrapper >
+      <Wrapper>
         <Input
           id={htmlId}
           type={type}
@@ -35,14 +47,15 @@ function TextInputStyledC({htmlId, name, label, type = "text",
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-        {...props}/>
+          {...props}
+        />
         {iconSuffix}
-        </Wrapper>
-        {children}
+      </Wrapper>
+      {children}
       {error && <Error>{error}</Error>}
     </FieldSet>
   );
-};
+}
 
 TextInputStyledC.propTypes = {
   /** Unique HTML ID. Used for tying label to HTML input.
@@ -69,13 +82,14 @@ TextInputStyledC.propTypes = {
   placeholder: PropTypes.string,
 
   /** Value */
+  // eslint-disable-next-line react/forbid-prop-types
   value: PropTypes.any,
 
   /** String to display when error occurs */
   error: PropTypes.string,
 
   /** Child component to display next to the input */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default TextInputStyledC;

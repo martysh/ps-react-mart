@@ -1,1 +1,1 @@
-export {default} from './TextInputStyledC';
+export { default } from './TextInputStyledC';

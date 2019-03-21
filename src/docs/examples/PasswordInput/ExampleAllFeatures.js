@@ -7,12 +7,14 @@ class ExampleAllFeatures extends React.Component {
     super(props);
 
     this.state = {
-      password: 'initial'
+      password: 'initial',
     };
   }
 
   getQuality() {
-    const length = this.state.password.length;
+    const {
+      password: { length },
+    } = this.state;
     return length > 10 ? 100 : length * 10;
   }
 
@@ -22,16 +24,17 @@ class ExampleAllFeatures extends React.Component {
         <PasswordInput
           htmlId="password-input-example-all-features"
           name="password"
-          onChange={ event => this.setState({ password: event.target.value })}
+          onChange={event => this.setState({ password: event.target.value })}
           value={this.state.password}
           minLength={8}
           placeholder="Enter password"
           error="some error just happened"
           showVisibilityToggle
           quality={this.getQuality()}
-          {...this.props} />
+          {...this.props}
+        />
       </div>
-    )
+    );
   }
 }
 

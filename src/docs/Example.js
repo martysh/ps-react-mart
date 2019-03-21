@@ -1,3 +1,5 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 import React from 'react';
 import PropTypes from 'prop-types';
 import CodeExample from './CodeExample';
@@ -40,6 +42,7 @@ class Example extends React.Component {
 }
 
 Example.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   example: PropTypes.object.isRequired,
   componentName: PropTypes.string.isRequired,
 };

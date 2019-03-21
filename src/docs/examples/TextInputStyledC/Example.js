@@ -1,3 +1,4 @@
+/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import TextInputStyledC from 'ps-react/TextInputStyledC';
 
@@ -12,7 +13,7 @@ export default class ExampleError extends React.Component {
         onChange={() => {}}
         required
         error="First name is required."
-       />
-    )
+      />
+    );
   }
 }
