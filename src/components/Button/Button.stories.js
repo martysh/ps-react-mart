@@ -1,36 +1,30 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { configureActions } from '@storybook/addon-actions';
-import  Button  from './Button';
+import Button from './Button';
 import EyeIcon from '../EyeIcon';
 import PlusIcon from '../PlusIcon';
 
-configureActions({
-  depth: 100,
-  // Limit the number of items logged into the actions panel
-  limit: 20,
-})
-
-
-
-
 storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
+  .add('with text', () => <Button>Hello Button</Button>)
   .add('with some emoji', () => (
     <>
-    <Button >regular</Button>
-    <Button primary >primary</Button>
-    <Button ><EyeIcon/></Button>
-    <Button primary disabled >primary</Button>
-    <Button primary theme={{color:'papayawhip', bgColor: 'purple'}} >
-      <PlusIcon/>
-    different</Button>
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
+      <Button>regular</Button>
+      <Button primary>primary</Button>
+      <Button>
+        <EyeIcon />
+      </Button>
+      <Button primary disabled>
+        primary
+      </Button>
+      <Button primary theme={{ color: 'papayawhip', bgColor: 'purple' }}>
+        <PlusIcon />
+        different
+      </Button>
+      <Button>
+        <span role="img" aria-label="so cool">
+          😀 😎 👍 💯
+        </span>
+      </Button>
     </>
   ));
