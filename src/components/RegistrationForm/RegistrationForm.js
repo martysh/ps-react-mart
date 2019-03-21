@@ -16,11 +16,11 @@ function RegistrationForm({
   onSubmit,
   minPasswordLength,
   confirmationMessage,
-  resetForm,
+  submitted,
 }) {
-  const [user, setUser] = useState({ email: '', password: '' });
+  const initUser = { email: '', password: '' };
+  const [user, setUser] = useState(initUser);
   const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(!resetForm);
 
   const onChange = event => {
     const { name, value } = event.target;
@@ -42,7 +42,7 @@ function RegistrationForm({
     const formIsValid = validate(user);
     if (formIsValid) {
       onSubmit(user);
-      setSubmitted(true);
+      setUser(initUser);
     }
   };
 
