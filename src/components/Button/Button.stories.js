@@ -7,7 +7,7 @@ import PlusIcon from '../PlusIcon';
 import myTheme from '../../theme/my-theme';
 
 storiesOf('Button', module)
-  .addDecorator(muiTheme([newTheme]))
+  .addDecorator(muiTheme([myTheme]))
   .add('with text', () => <Button>Hello Button</Button>)
   .add('with some emoji', () => (
     <>
