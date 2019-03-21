@@ -1,8 +1,15 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { indigo, pink, red } from '@material-ui/core/colors';
+import { lightGreen, yellow, red } from '@material-ui/core/colors';
 import 'typeface-inconsolata';
 
 const theme = createMuiTheme({
+  props: {
+    // Name of the component ⚛️
+    MuiButtonBase: {
+      // The properties to apply
+      disableRipple: true, // No more ripple, on the whole application 💣!
+    },
+  },
   typography: {
     // Use the system font instead of the default Roboto font.
     fontFamily: [
@@ -13,10 +20,11 @@ const theme = createMuiTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
+    useNextVariants: true,
   },
   palette: {
-    primary: indigo,
-    secondary: pink,
+    primary: lightGreen,
+    secondary: yellow,
     error: red,
     // Used by `getContrastText()` to maximize the contrast between the background and
     // the text.
