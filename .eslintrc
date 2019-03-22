@@ -33,6 +33,7 @@
         "printWidth": 80
       }
     ],
+    "import/no-unresolved": ["error", { "ignore": ["ps-react/"] }],
     "no-unused-vars": [
       1,
       {
