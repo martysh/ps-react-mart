@@ -1,15 +1,22 @@
 import React from 'react';
-import { muiTheme } from 'storybook-addon-material-ui';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import MuiButton from '@material-ui/core/Button';
+/* import { muiTheme } from 'storybook-addon-material-ui'; */
 import { storiesOf } from '@storybook/react';
 import Button from './Button';
 import EyeIcon from '../EyeIcon';
 import PlusIcon from '../PlusIcon';
 import myTheme from '../../theme/my-theme';
+import CustomButton from './CustomButton';
+
+window.myTheme = myTheme;
+console.log(myTheme);
 
 storiesOf('Button', module)
-  .addDecorator(muiTheme([myTheme]))
+  /* .addDecorator(muiTheme([myTheme])) */
   .add('with text', () => <Button>Hello Button</Button>)
   .add('with some emoji', () => (
+
     <>
       <Button>regular</Button>
       <Button primary>primary</Button>
@@ -28,5 +35,21 @@ storiesOf('Button', module)
           😀 😎 👍 💯
         </span>
       </Button>
+      <MuiThemeProvider theme={myTheme}>
+        <CustomButton>my custom button</CustomButton>
+        <div>
+        <MuiButton variant="contained">Default</MuiButton>
+        <MuiButton variant="outlined" color="primary">
+          <EyeIcon />
+        </MuiButton>
+        <MuiButton variant="text" color="secondary">
+          Secondary
+        </MuiButton>
+        <MuiButton variant="outlined" color="primary">
+          Outlined seconday
+        </MuiButton>
+
+        </div>
+      </MuiThemeProvider>
     </>
   ));

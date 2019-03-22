@@ -3,6 +3,16 @@ import { lightGreen, yellow, red } from '@material-ui/core/colors';
 import 'typeface-inconsolata';
 
 const theme = createMuiTheme({
+  overrides: {
+    MuiButton: { // Name of the component ⚛️ / style sheet
+      text: { // Name of the rule
+        color: 'white', // Some CSS
+      },
+      outlinedPrimary : {
+        padding: '0.5em 0.7em',
+      }
+    },
+  },
   props: {
     // Name of the component ⚛️
     MuiButtonBase: {

@@ -54,7 +54,7 @@ export default function ExampleButtons() {
         <MuiButton variant="contained" color="secondary">
           Disabled
         </MuiButton>
-        <CustomButton/>
+        <CustomButton>Button</CustomButton>
 
     </MuiThemeProvider>
       </div>
