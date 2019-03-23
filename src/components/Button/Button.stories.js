@@ -9,14 +9,10 @@ import PlusIcon from '../PlusIcon';
 import myTheme from '../../theme/my-theme';
 import CustomButton from './CustomButton';
 
-window.myTheme = myTheme;
-console.log(myTheme);
-
 storiesOf('Button', module)
   /* .addDecorator(muiTheme([myTheme])) */
   .add('with text', () => <Button>Hello Button</Button>)
   .add('with some emoji', () => (
-
     <>
       <Button>regular</Button>
       <Button primary>primary</Button>
@@ -38,17 +34,16 @@ storiesOf('Button', module)
       <MuiThemeProvider theme={myTheme}>
         <CustomButton>my custom button</CustomButton>
         <div>
-        <MuiButton variant="contained">Default</MuiButton>
-        <MuiButton variant="outlined" color="primary">
-          <EyeIcon />
-        </MuiButton>
-        <MuiButton variant="text" color="secondary">
-          Secondary
-        </MuiButton>
-        <MuiButton variant="outlined" color="primary">
-          Outlined seconday
-        </MuiButton>
-
+          <MuiButton variant="contained">Default</MuiButton>
+          <MuiButton variant="outlined" color="primary">
+            <EyeIcon />
+          </MuiButton>
+          <MuiButton variant="text" color="secondary">
+            Secondary
+          </MuiButton>
+          <MuiButton variant="outlined" color="primary">
+            Outlined seconday
+          </MuiButton>
         </div>
       </MuiThemeProvider>
     </>

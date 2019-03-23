@@ -2,15 +2,35 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { lightGreen, yellow, red } from '@material-ui/core/colors';
 import 'typeface-inconsolata';
 
+const defaultTheme = createMuiTheme({
+  my_font_vars: { text_base_size: 1, text_scale_ratio: 1.2 },
+  breakpoints: {
+    values: {
+      lg: 80,
+      md: 60,
+      sm: 37.5,
+      xl: 120,
+    },
+    unit: 'em',
+  },
+  useNextVariants: true,
+});
+const {
+  breakpoints,
+  typography: { pxToRem },
+} = defaultTheme;
 const theme = createMuiTheme({
+  breakpoints,
   overrides: {
-    MuiButton: { // Name of the component ⚛️ / style sheet
-      text: { // Name of the rule
+    MuiButton: {
+      // Name of the component ⚛️ / style sheet
+      text: {
+        // Name of the rule
         color: 'white', // Some CSS
       },
-      outlinedPrimary : {
+      outlinedPrimary: {
         padding: '0.5em 0.7em',
-      }
+      },
     },
   },
   props: {
@@ -30,6 +50,12 @@ const theme = createMuiTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
+    /* h2: {
+      fontSize: '3em',
+      [breakpoints.up('md')]: {
+        fontSize: '5em',
+      },
+    }, */
     useNextVariants: true,
   },
   palette: {

@@ -7,7 +7,6 @@ import SelectBox from './SelectBox';
 import myTheme from '../../theme/my-theme';
 
 window.myTheme = myTheme;
-console.log(myTheme);
 
 storiesOf('SelectBox', module)
   /* .addDecorator(muiTheme([myTheme])) */
