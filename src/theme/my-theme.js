@@ -3,13 +3,12 @@ import { lightGreen, yellow, red } from '@material-ui/core/colors';
 import 'typeface-inconsolata';
 
 const defaultTheme = createMuiTheme({
-  my_font_vars: { text_base_size: 1, text_scale_ratio: 1.2 },
   breakpoints: {
     values: {
-      lg: 80,
-      md: 60,
-      sm: 37.5,
-      xl: 120,
+      lg: 80, // 1280
+      md: 60, // 960
+      sm: 37.5, // 600
+      xl: 120, // 1920
     },
     unit: 'em',
   },
@@ -19,6 +18,27 @@ const {
   breakpoints,
   typography: { pxToRem },
 } = defaultTheme;
+
+const fontScale = {
+  text_base_size: 1,
+  text_scale_ratio: {
+    default: 1.2,
+    [breakpoints.up('md')]: 1.25,
+  },
+};
+
+const getFontSize = (scale, rank) => `${scale ** rank}em`;
+
+const fontScales = (scale = fontScale.text_scale_ratio.default) => ({
+  xs: getFontSize(scale, -2),
+  sm: getFontSize(scale, -1),
+  md: getFontSize(scale, 1),
+  lg: getFontSize(scale, 2),
+  xl: getFontSize(scale, 3),
+  xxl: getFontSize(scale, 4),
+  xxxl: getFontSize(scale, 5),
+});
+
 const theme = createMuiTheme({
   breakpoints,
   overrides: {
@@ -50,12 +70,13 @@ const theme = createMuiTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
-    /* h2: {
-      fontSize: '3em',
+    h2: {
+      fontSize: fontScales().xl,
       [breakpoints.up('md')]: {
-        fontSize: '5em',
+        fontSize: fontScales(fontScale.text_scale_ratio[breakpoints.up('md')])
+          .xl,
       },
-    }, */
+    },
     useNextVariants: true,
   },
   palette: {
