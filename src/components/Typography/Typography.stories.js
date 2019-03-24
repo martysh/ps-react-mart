@@ -15,10 +15,10 @@ storiesOf('Typography', module).add(
   () => {
     const styles = createStyles({
       root: {
-        lineHeight: 1.5,
+        lineHeight: 1.4,
         backgroundImage:
           'linear-gradient(rgba(200, 50, 50, .25) 1px, transparent 1px)',
-        backgroundSize: '1px 1.5rem',
+        backgroundSize: '1px 1.4rem',
         height: '100vh',
       },
     });
@@ -34,20 +34,22 @@ storiesOf('Typography', module).add(
     return (
       <MuiThemeProvider theme={myTheme}>
         <SomeDiv>
-          <Typography variant="h1" gutterBottom>
-            h1. Heading
+          <Typography variant="h1">h1. Heading</Typography>
+          <Typography variant="h2">h2. Heading</Typography>
+          <Typography variant="h3">h3. Heading</Typography>
+          <Typography variant="h4">h4. Heading</Typography>
+          <Typography variant="h5">h5. Heading</Typography>
+          <Typography variant="body1">
+            body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
+            consectetur, neque doloribus, cupiditate numquam dignissimos laborum
+            fugiat deleniti? Eum quasi quidem quibusdam.
           </Typography>
-          <Typography variant="h2" gutterBottom>
-            h2. Heading
-          </Typography>
-          <Typography variant="h3" gutterBottom>
-            h3. Heading
-          </Typography>
-          <Typography variant="h4" gutterBottom>
-            h4. Heading
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            h5. Heading
+          <Typography variant="body2">
+            body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
+            consectetur, neque doloribus, cupiditate numquam dignissimos laborum
+            fugiat deleniti? Eum quasi quidem quibusdam.
           </Typography>
         </SomeDiv>
       </MuiThemeProvider>

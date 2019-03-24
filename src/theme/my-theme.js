@@ -27,17 +27,24 @@ const fontScale = {
   },
 };
 
-const getFontSize = (scale, rank) => `${scale ** rank}em`;
+const getFontSize = (scale = fontScale.text_scale_ratio.default, rank) =>
+  `${scale ** rank}em`;
 
-const fontScales = (scale = fontScale.text_scale_ratio.default) => ({
-  xs: getFontSize(scale, -2),
-  sm: getFontSize(scale, -1),
-  md: getFontSize(scale, 1),
-  lg: getFontSize(scale, 2),
-  xl: getFontSize(scale, 3),
-  xxl: getFontSize(scale, 4),
-  xxxl: getFontSize(scale, 5),
-});
+const fontScales = {
+  xs: scale => getFontSize(scale, -2),
+  sm: scale => getFontSize(scale, -1),
+  md: scale => getFontSize(scale, 1),
+  lg: scale => getFontSize(scale, 2),
+  xl: scale => getFontSize(scale, 3),
+  xxl: scale => getFontSize(scale, 4),
+  xxxl: scale => getFontSize(scale, 5),
+};
+
+fontScales.h1 = fontScales.xxxl;
+fontScales.h2 = fontScales.xxl;
+fontScales.h3 = fontScales.xl;
+fontScales.h4 = fontScales.lg;
+fontScales.h5 = fontScales.md;
 
 const theme = createMuiTheme({
   breakpoints,
@@ -70,11 +77,44 @@ const theme = createMuiTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
-    h2: {
-      fontSize: fontScales().xl,
+    h1: {
+      fontSize: fontScales.xxxl(),
       [breakpoints.up('md')]: {
-        fontSize: fontScales(fontScale.text_scale_ratio[breakpoints.up('md')])
-          .xl,
+        fontSize: fontScales.xxxl(
+          fontScale.text_scale_ratio[breakpoints.up('md')]
+        ),
+      },
+    },
+    h2: {
+      fontSize: fontScales.xxl(),
+      [breakpoints.up('md')]: {
+        fontSize: fontScales.xxl(
+          fontScale.text_scale_ratio[breakpoints.up('md')]
+        ),
+      },
+    },
+    h3: {
+      fontSize: fontScales.xl(),
+      [breakpoints.up('md')]: {
+        fontSize: fontScales.xl(
+          fontScale.text_scale_ratio[breakpoints.up('md')]
+        ),
+      },
+    },
+    h4: {
+      fontSize: fontScales.lg(),
+      [breakpoints.up('md')]: {
+        fontSize: fontScales.lg(
+          fontScale.text_scale_ratio[breakpoints.up('md')]
+        ),
+      },
+    },
+    h5: {
+      fontSize: fontScales.md(),
+      [breakpoints.up('md')]: {
+        fontSize: fontScales.md(
+          fontScale.text_scale_ratio[breakpoints.up('md')]
+        ),
       },
     },
     useNextVariants: true,
