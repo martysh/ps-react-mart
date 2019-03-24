@@ -16,7 +16,6 @@ const defaultTheme = createMuiTheme({
 });
 const {
   breakpoints,
-  typography: { pxToRem },
 } = defaultTheme;
 
 const fontScale = {
@@ -60,8 +59,6 @@ const headingSizes = ['h1', 'h2', 'h3', 'h4', 'h5'].reduce(
   }),
   {}
 );
-
-console.log(headingSizes);
 
 const theme = createMuiTheme({
   breakpoints,
