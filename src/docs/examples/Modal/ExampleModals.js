@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import Modal from 'ps-react/Modal';
 import Button from 'ps-react/Button';
 
