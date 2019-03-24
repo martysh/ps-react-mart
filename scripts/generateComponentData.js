@@ -29,9 +29,12 @@ function generate(paths) {
       return getComponentData(paths, componentName);
     } catch(error) {
       errors.push('An error occurred while attempting to generate metadata for ' + componentName + '. ' + error);
+      console.log('An error occurred while attempting to generate metadata for ' + componentName + '. ' + error)
     }
   });
-  writeFile(paths.output, "module.exports = /* eslint-disable */ " + JSON.stringify(errors.length ? errors : componentData));
+  // writeFile(paths.output, "module.exports = /* eslint-disable */ " + JSON.stringify(errors.length ? errors : componentData));
+  componentData = componentData.filter(comp=> typeof comp !== 'undefined');
+  writeFile(paths.output, "module.exports = /* eslint-disable */ " + JSON.stringify(componentData));
 }
 
 function getComponentData(paths, componentName) {
