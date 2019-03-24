@@ -46,6 +46,23 @@ fontScales.h3 = fontScales.xl;
 fontScales.h4 = fontScales.lg;
 fontScales.h5 = fontScales.md;
 
+const headingSizes = ['h1', 'h2', 'h3', 'h4', 'h5'].reduce(
+  (acc, entry) => ({
+    ...acc,
+    [entry]: {
+      fontSize: fontScales[entry](),
+      [breakpoints.up('md')]: {
+        fontSize: fontScales[entry](
+          fontScale.text_scale_ratio[breakpoints.up('md')]
+        ),
+      },
+    },
+  }),
+  {}
+);
+
+console.log(headingSizes);
+
 const theme = createMuiTheme({
   breakpoints,
   overrides: {
@@ -77,46 +94,7 @@ const theme = createMuiTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
-    h1: {
-      fontSize: fontScales.xxxl(),
-      [breakpoints.up('md')]: {
-        fontSize: fontScales.xxxl(
-          fontScale.text_scale_ratio[breakpoints.up('md')]
-        ),
-      },
-    },
-    h2: {
-      fontSize: fontScales.xxl(),
-      [breakpoints.up('md')]: {
-        fontSize: fontScales.xxl(
-          fontScale.text_scale_ratio[breakpoints.up('md')]
-        ),
-      },
-    },
-    h3: {
-      fontSize: fontScales.xl(),
-      [breakpoints.up('md')]: {
-        fontSize: fontScales.xl(
-          fontScale.text_scale_ratio[breakpoints.up('md')]
-        ),
-      },
-    },
-    h4: {
-      fontSize: fontScales.lg(),
-      [breakpoints.up('md')]: {
-        fontSize: fontScales.lg(
-          fontScale.text_scale_ratio[breakpoints.up('md')]
-        ),
-      },
-    },
-    h5: {
-      fontSize: fontScales.md(),
-      [breakpoints.up('md')]: {
-        fontSize: fontScales.md(
-          fontScale.text_scale_ratio[breakpoints.up('md')]
-        ),
-      },
-    },
+    ...headingSizes,
     useNextVariants: true,
   },
   palette: {
